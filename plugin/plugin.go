@@ -25,7 +25,7 @@ func Register(name string, plugin Plugin) error {
 func Get(name string, output any) error {
 	i, ok := registries[strings.ToLower(name)]
 	if i == nil || !ok {
-		return fmt.Errorf("service %s not found", name)
+		return fmt.Errorf("plugin %s not found", name)
 	}
 	rv := reflect.ValueOf(output)
 	if rv.Kind() != reflect.Pointer || rv.IsNil() {
